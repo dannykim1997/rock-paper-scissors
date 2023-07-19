@@ -1,8 +1,3 @@
-let playerSelection = prompt("Enter rock, paper, or scissors").toLowerCase();
-let computerSelection = getComputerChoice();
-let playerScore = 0;
-let computerScore = 0;
-
 function getComputerChoice() {
     let randomComputerChoice = Math.floor(Math.random() * 3) + 1;
     let computerHand;
@@ -39,10 +34,14 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
+    let winner;
+    let playerScore = 0;
+    let computerScore = 0;
+    
     for (let i = 0; i < 5; i++) {
-        playerSelection = prompt("Enter rock, paper, or scissors").toLowerCase();
-        computerSelection = getComputerChoice();
-        result = playRound(playerSelection, computerSelection);
+        let playerSelection = prompt("Enter rock, paper, or scissors").toLowerCase();
+        let computerSelection = getComputerChoice();
+        let result = playRound(playerSelection, computerSelection);
         if (result == "You win, rock beats scissors" || result == "You win, paper beats rock" || result == "You win, scissors beats paper" ) {
         playerScore = ++playerScore;
         } else if (result == "You lose, rock loses to paper" || result == "You lose, paper loses to scissors" || result == "You lose, scissors loses to rock") {
@@ -53,6 +52,15 @@ function game() {
     console.log(`computer: ${computerScore}`);
     console.log(`loop iteration: ${i}`);
     }
+
+    if (playerScore > computerScore) {
+        winner = "You are the winner!";
+    } else if (playerScore < computerScore) {
+        winner = "You are the loser!";
+    } else if (playerScore == computerScore) {
+        winner = "It's a tie!";
+    }
+    console.log(winner);
 }
 
 game();
