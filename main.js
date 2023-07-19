@@ -2,9 +2,6 @@ let playerSelection = prompt("Enter rock, paper, or scissors").toLowerCase();
 let computerSelection = getComputerChoice();
 let playerScore = 0;
 let computerScore = 0;
-let currentPlayerScore;
-let currentComputerScore;
-
 
 function getComputerChoice() {
     let randomComputerChoice = Math.floor(Math.random() * 3) + 1;
@@ -42,63 +39,20 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-    let result = playRound(playerSelection, computerSelection);
-    if (result == "You win, rock beats scissors" || result == "You win, paper beats rock" || result == "You win, scissors beats paper" ) {
+    for (let i = 0; i < 5; i++) {
+        playerSelection = prompt("Enter rock, paper, or scissors").toLowerCase();
+        computerSelection = getComputerChoice();
+        result = playRound(playerSelection, computerSelection);
+        if (result == "You win, rock beats scissors" || result == "You win, paper beats rock" || result == "You win, scissors beats paper" ) {
         playerScore = ++playerScore;
-    } else if (result == "You lose, rock loses to paper" || result == "You lose, paper loses to scissors" || result == "You lose, scissors loses to rock") {
+        } else if (result == "You lose, rock loses to paper" || result == "You lose, paper loses to scissors" || result == "You lose, scissors loses to rock") {
         computerScore = ++computerScore;
-    }
+        }
     console.log(result);
     console.log(`player: ${playerScore}`);
     console.log(`computer: ${computerScore}`);
-
-    playerSelection = prompt("Enter rock, paper, or scissors").toLowerCase();
-    computerSelection = getComputerChoice();
-    result = playRound(playerSelection, computerSelection);
-    if (result == "You win, rock beats scissors" || result == "You win, paper beats rock" || result == "You win, scissors beats paper" ) {
-        playerScore = ++playerScore;
-    } else if (result == "You lose, rock loses to paper" || result == "You lose, paper loses to scissors" || result == "You lose, scissors loses to rock") {
-        computerScore = ++computerScore;
+    console.log(i);
     }
-    console.log(result);
-    console.log(`player: ${playerScore}`);
-    console.log(`computer: ${computerScore}`);
-
-    playerSelection = prompt("Enter rock, paper, or scissors").toLowerCase();
-    computerSelection = getComputerChoice();
-    result = playRound(playerSelection, computerSelection);
-    if (result == "You win, rock beats scissors" || result == "You win, paper beats rock" || result == "You win, scissors beats paper" ) {
-        playerScore = ++playerScore;
-    } else if (result == "You lose, rock loses to paper" || result == "You lose, paper loses to scissors" || result == "You lose, scissors loses to rock") {
-        computerScore = ++computerScore;
-    }
-    console.log(result);
-    console.log(`player: ${playerScore}`);
-    console.log(`computer: ${computerScore}`);
-
-    playerSelection = prompt("Enter rock, paper, or scissors").toLowerCase();
-    computerSelection = getComputerChoice();
-    result = playRound(playerSelection, computerSelection);
-    if (result == "You win, rock beats scissors" || result == "You win, paper beats rock" || result == "You win, scissors beats paper" ) {
-        playerScore = ++playerScore;
-    } else if (result == "You lose, rock loses to paper" || result == "You lose, paper loses to scissors" || result == "You lose, scissors loses to rock") {
-        computerScore = ++computerScore;
-    }
-    console.log(result);
-    console.log(`player: ${playerScore}`);
-    console.log(`computer: ${computerScore}`);
-
-    playerSelection = prompt("Enter rock, paper, or scissors").toLowerCase();
-    computerSelection = getComputerChoice();
-    result = playRound(playerSelection, computerSelection);
-    if (result == "You win, rock beats scissors" || result == "You win, paper beats rock" || result == "You win, scissors beats paper" ) {
-        playerScore = ++playerScore;
-    } else if (result == "You lose, rock loses to paper" || result == "You lose, paper loses to scissors" || result == "You lose, scissors loses to rock") {
-        computerScore = ++computerScore;
-    }
-    console.log(result);
-    console.log(`player: ${playerScore}`);
-    console.log(`computer: ${computerScore}`);
 }
 
 game();
