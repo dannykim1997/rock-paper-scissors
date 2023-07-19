@@ -51,7 +51,7 @@ function game() {
     console.log(result);
     console.log(`player: ${playerScore}`);
     console.log(`computer: ${computerScore}`);
-    console.log(i);
+    console.log(`loop iteration: ${i}`);
     }
 }
 
