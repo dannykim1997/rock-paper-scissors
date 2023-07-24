@@ -29,18 +29,6 @@ body {
     flex-wrap: wrap;
 }
 
-/* .button {
-    margin: 0;
-    padding: 0;
-    border: 0;
-} */
-
-/* button {
-    margin: 0;
-    padding: 0;
-    border: 0;
-} */
-
 img {
     width: 100px;
     height: 100px;
@@ -71,5 +59,11 @@ h2 {
 
 .gameResult {
     border: solid pink;
+}
+
+.resetButton {
+    background-color: #008CBA;
+    font-size: 20px;
+    border-radius: 12px;
 }
 

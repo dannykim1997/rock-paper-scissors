@@ -104,6 +104,7 @@ function gameOver() {
 function playAgain() {
     const resetButton = document.createElement('button');
     resetButton.innerHTML = "Play Again!";
+    resetButton.classList.add("resetButton");
     results.appendChild(resetButton);
 
     resetButton.addEventListener('click', () => {
