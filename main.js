@@ -4,16 +4,17 @@ let result;
 let playerSelection;
 let computerSelection;
 let winner;
-const buttons = document.querySelectorAll('.button');
+
+const buttons = document.querySelectorAll('button');
 const results = document.querySelector('.result');
-const choices = document.createElement('div');
-const outcome = document.createElement('div');
-const score = document.createElement('div');
-const gameResult = document.createElement('div')
-results.appendChild(choices);
-results.appendChild(outcome);
-results.appendChild(score);
-results.appendChild(gameResult);
+const choices = document.querySelector('.choices');
+const outcome = document.querySelector('.outcome');
+const score = document.querySelector('.score');
+const gameResult = document.querySelector('.gameResult');
+
+choices.textContent = `Player: Computer: `;        
+outcome.textContent = `Result: `;
+score.textContent = `Player Score: Computer Score: `;
 
 function getComputerChoice() {
     let randomComputerChoice = Math.floor(Math.random() * 3) + 1;
@@ -30,11 +31,18 @@ function getComputerChoice() {
 
 function getPlayerChoice() {
     buttons.forEach(button => button.addEventListener('click', (e) => {
-        playerSelection = e.target.innerHTML; 
+        if(e.target.alt) {
+            playerSelection = e.target.alt;
+        } else if (e.target.firstChild.getAttribute("alt")) {
+            playerSelection = e.target.firstChild.getAttribute("alt");
+        }
+
         computerSelection = getComputerChoice();
         result = playRound(playerSelection, computerSelection);
         choices.textContent = `Player: ${playerSelection} Computer: ${computerSelection}`;
-        outcome.textContent = `${result}`;
+        outcome.textContent = `Result: ${result}`;
+        console.log(e.target.alt);
+        console.log(e.target.firstChild.getAttribute("alt"));
     }));
 }
 getPlayerChoice();
@@ -85,9 +93,11 @@ function gameOver() {
     }
 
     gameResult.textContent = `${winner}`;
+
     buttons.forEach((button) => {
-        button.style.display = 'none';
+        button.disabled = true;
     })
+
     playAgain();
 }
 
