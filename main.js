@@ -12,9 +12,9 @@ const outcome = document.querySelector('.outcome');
 const score = document.querySelector('.score');
 const gameResult = document.querySelector('.gameResult');
 
-choices.textContent = `Player: Computer: `;        
+choices.textContent = `Player: Choice --- Computer: Choice `;        
 outcome.textContent = `Result: `;
-score.textContent = `Player Score: Computer Score: `;
+score.textContent = `Player Score: --- Computer Score: `;
 
 function getComputerChoice() {
     let randomComputerChoice = Math.floor(Math.random() * 3) + 1;
